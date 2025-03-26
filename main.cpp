@@ -42,7 +42,9 @@ int main()
     world.add(make_shared<sphere>(vec3(0,0,-1), 0.5));
     world.add(make_shared<sphere>(vec3(0,-100.5,-1), 100));
 
-    std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
+    std::ostringstream image_stream;
+
+    image_stream << "P3\n" << image_width << ' ' << image_height << "\n255\n";
 
     for (int i = 0; i < image_height; i++) {
         std::clog << "\rScanlines remaining: " << (image_height - i) << ' ' << std::flush;
@@ -52,9 +54,9 @@ int main()
             ray r(camera_center, ray_direction);
 
             color pixel_color = ray_color(r, world);
-            color_out(std::cout, pixel_color);
+            color_out(image_stream, pixel_color);
         }
     }
-
+    cimg_ppm("img.ppm", image_stream.str());
     std::clog << "\rDone.                 \n";
 }

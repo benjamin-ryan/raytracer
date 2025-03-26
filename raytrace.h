@@ -7,12 +7,14 @@
 #include "ray.h"
 #include "sphere.h"
 #include "vec3.h"
+#include "cimage.h"
 
 #include <cmath>
 #include <cstdlib>
 #include <iostream>
 #include <limits>
 #include <memory>
+#include <sstream>
 
 using std::make_shared;
 using std::shared_ptr;

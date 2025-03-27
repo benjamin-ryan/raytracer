@@ -36,5 +36,6 @@ inline double random_double(double min, double max) {
 #include "sphere.h"
 #include "vec3.h"
 #include "cimage.h"
+#include "material.h"
 
 #endif
